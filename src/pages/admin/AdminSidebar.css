@@ -1,195 +1,112 @@
-/* =========================================
-   ADMIN SIDEBAR
-   ========================================= */
+/* =========================================================
+   ECODAS ADMIN — SIDEBAR
+   ========================================================= */
 
 .admin-sidebar {
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 200;
-
-  width: 258px;
+  inset: 0 auto 0 0;
+  z-index: 220;
+  width: 252px;
   height: 100vh;
-
   display: flex;
   flex-direction: column;
-
-  background: #ffffff;
-  border-right: 1px solid #e2e8e0;
-
-  box-sizing: border-box;
-
-  transition:
-    width 0.25s ease,
-    transform 0.25s ease;
+  background: #fff;
+  border-right: 1px solid #e1e8e3;
+  transition: transform 0.22s ease;
 }
 
-
-/* =========================================
-   OPEN / CLOSED
-   ========================================= */
-
 .admin-sidebar-open {
-  width: 258px;
   transform: translateX(0);
 }
 
 .admin-sidebar-closed {
-  width: 0;
   transform: translateX(-100%);
-  overflow: hidden;
-  border-right: none;
 }
 
-
-/* =========================================
-   BRAND
-   ========================================= */
-
 .admin-sidebar-brand {
-  padding: 22px 20px 20px;
-
+  min-height: 82px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-
-  border-bottom: 1px solid #edf1eb;
-
-  flex-shrink: 0;
+  gap: 11px;
+  padding: 14px 18px;
+  border-bottom: 1px solid #edf2ee;
 }
 
 .admin-sidebar-logo-box {
-  width: 112px;
-  height: 76px;
-
+  width: 82px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  margin-bottom: 5px;
+  flex-shrink: 0;
 }
 
 .admin-sidebar-logo {
-  width: 112px;
-  height: 76px;
-
+  width: 82px;
+  height: 42px;
   object-fit: contain;
 }
 
 .admin-sidebar-logo-fallback {
-  width: 58px;
-  height: 58px;
-
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  border-radius: 12px;
-
-  background: #e7f0e8;
-  border: 1px solid #d3e2d5;
-
+  border-radius: 10px;
+  background: #e6f1e8;
   color: #17613a;
-
-  font-size: 24px;
-  font-weight: 750;
+  font-weight: 800;
 }
 
-.admin-sidebar-brand-name {
-  color: #183b29;
-
-  font-size: 21px;
-  font-weight: 750;
-
-  letter-spacing: 0.04em;
-
-  line-height: 1.2;
+.admin-sidebar-brand-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 3px;
 }
 
-.admin-sidebar-brand-subtitle {
-  margin-top: 4px;
-
-  color: #8a978e;
-
-  font-size: 9.5px;
-  font-weight: 500;
-
-  letter-spacing: 0.04em;
+.admin-sidebar-brand-copy strong {
+  color: #244a35;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-
-  text-align: center;
 }
 
-.admin-sidebar-admin-badge {
-  margin-top: 12px;
-
-  padding: 5px 9px;
-
-  border: 1px solid #d8e5da;
-  border-radius: 5px;
-
-  background: #f4f8f3;
-
-  color: #52715c;
-
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: 0.08em;
+.admin-sidebar-brand-copy span {
+  color: #8a978f;
+  font-size: 8.5px;
+  line-height: 1.35;
 }
-
-
-/* =========================================
-   CONTENT
-   ========================================= */
 
 .admin-sidebar-content {
   flex: 1;
-
-  padding: 22px 14px 18px;
-
   overflow-y: auto;
   overflow-x: hidden;
+  padding: 20px 12px;
 }
 
 .admin-sidebar-content::-webkit-scrollbar {
   width: 4px;
 }
 
-.admin-sidebar-content::-webkit-scrollbar-track {
-  background: transparent;
-}
-
 .admin-sidebar-content::-webkit-scrollbar-thumb {
-  background: #dce4dc;
-  border-radius: 10px;
+  border-radius: 99px;
+  background: #dce5de;
 }
-
-
-/* =========================================
-   SECTION LABEL
-   ========================================= */
 
 .admin-sidebar-section-label {
-  padding: 0 10px;
-  margin-bottom: 8px;
-
-  color: #9aa59d;
-
-  font-size: 9px;
-  font-weight: 750;
-
-  letter-spacing: 0.09em;
+  margin: 0 10px 7px;
+  color: #9aa69e;
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.11em;
 }
 
 .admin-sidebar-section-space {
-  margin-top: 24px;
+  margin-top: 22px;
 }
-
-
-/* =========================================
-   NAVIGATION
-   ========================================= */
 
 .admin-sidebar-nav {
   display: flex;
@@ -198,31 +115,19 @@
 }
 
 .admin-sidebar-nav-item {
-  min-height: 40px;
-
+  min-height: 42px;
   display: flex;
   align-items: center;
-
   gap: 11px;
-
   padding: 0 11px;
-
   border: 1px solid transparent;
-  border-radius: 7px;
-
-  color: #5f6e64;
-
+  border-radius: 8px;
+  color: #5f7066;
   font-size: 11.5px;
-  font-weight: 550;
-
+  font-weight: 600;
+  line-height: 1.25;
   text-decoration: none;
-
-  box-sizing: border-box;
-
-  transition:
-    background-color 0.18s ease,
-    color 0.18s ease,
-    border-color 0.18s ease;
+  transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease;
 }
 
 .admin-sidebar-nav-item svg {
@@ -230,71 +135,49 @@
 }
 
 .admin-sidebar-nav-item:hover {
-  background: #f5f8f4;
-  color: #234a32;
+  background: #f5f8f6;
+  color: #284d37;
 }
 
 .admin-sidebar-nav-active {
-  background: #eaf3eb;
-
-  border-color: #dce9dd;
-
+  background: #ebf4ed;
+  border-color: #d8e8dc;
   color: #17613a;
-
-  font-weight: 650;
+  font-weight: 750;
 }
 
 .admin-sidebar-nav-active:hover {
-  background: #eaf3eb;
+  background: #ebf4ed;
   color: #17613a;
 }
 
-
-/* =========================================
-   FOOTER
-   ========================================= */
-
 .admin-sidebar-footer {
-  padding: 12px 14px 15px;
-
-  border-top: 1px solid #edf1eb;
-
   flex-shrink: 0;
+  padding: 11px 12px 14px;
+  border-top: 1px solid #edf2ee;
 }
 
 .admin-sidebar-footer-item {
   width: 100%;
-  min-height: 39px;
-
+  min-height: 40px;
   display: flex;
   align-items: center;
-
   gap: 11px;
-
   padding: 0 11px;
-
-  border: none;
-  border-radius: 7px;
-
+  border: 0;
+  border-radius: 8px;
   background: transparent;
-
-  color: #68766d;
-
-  font-size: 11.5px;
-  font-weight: 550;
-
+  color: #68786e;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
   text-align: left;
-
   cursor: pointer;
-
-  transition:
-    background-color 0.18s ease,
-    color 0.18s ease;
 }
 
 .admin-sidebar-footer-item:hover {
-  background: #f5f8f4;
-  color: #234a32;
+  background: #f5f8f6;
+  color: #284d37;
 }
 
 .admin-sidebar-logout {
@@ -302,172 +185,47 @@
 }
 
 .admin-sidebar-logout:hover {
-  background: #faf5f4;
-  color: #8b4941;
+  background: #fff5f5;
+  color: #924848;
 }
 
 .admin-sidebar-logout-text {
-  min-width: 0;
-
   display: flex;
+  min-width: 0;
   flex-direction: column;
-
   gap: 2px;
 }
 
-.admin-sidebar-logout-text span {
-  font-size: 11.5px;
-}
-
 .admin-sidebar-logout-text small {
-  color: #a0aaa3;
-
-  font-size: 9px;
-
-  white-space: nowrap;
   overflow: hidden;
+  color: #a0aba4;
+  font-size: 8.5px;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
-
-
-/* =========================================
-   TOGGLE BUTTON
-   ========================================= */
-
-.admin-sidebar-mobile-toggle {
-  position: fixed;
-
-  top: 14px;
-  left: 16px;
-
-  z-index: 300;
-
-  width: 36px;
-  height: 36px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid #dce4dc;
-  border-radius: 8px;
-
-  background: #ffffff;
-
-  color: #31553d;
-
-  cursor: pointer;
-
-  box-shadow: 0 2px 8px rgba(24, 59, 41, 0.06);
-
-  transition:
-    background-color 0.18s ease,
-    border-color 0.18s ease,
-    color 0.18s ease;
-}
-
-.admin-sidebar-mobile-toggle:hover {
-  background: #f3f7f2;
-  border-color: #cddbcf;
-  color: #17613a;
-}
-
-
-/* =========================================
-   OVERLAY
-   ========================================= */
 
 .admin-sidebar-overlay {
   display: none;
 }
 
-
-/* =========================================
-   DESKTOP
-   ========================================= */
-
-@media (min-width: 769px) {
-
-  .admin-sidebar-mobile-toggle {
-    /*
-      Tombol tetap terlihat seperti
-      sidebar mahasiswa.
-    */
-    left: 272px;
-
-    transition:
-      left 0.25s ease,
-      background-color 0.18s ease,
-      border-color 0.18s ease;
-  }
-
-}
-
-
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media (max-width: 768px) {
-
-  .admin-sidebar {
-    width: 258px;
-
-    box-shadow:
-      10px 0 30px rgba(24, 59, 41, 0.08);
-  }
-
-  .admin-sidebar-open {
+@media (min-width: 901px) {
+  .admin-sidebar-closed {
     transform: translateX(0);
   }
+}
 
-  .admin-sidebar-closed {
-    transform: translateX(-100%);
-    width: 258px;
-  }
-
-  .admin-sidebar-mobile-toggle {
-    left: 14px;
-    top: 11px;
+@media (max-width: 900px) {
+  .admin-sidebar {
+    width: 252px;
+    box-shadow: 16px 0 42px rgba(23, 59, 41, 0.12);
   }
 
   .admin-sidebar-overlay {
     position: fixed;
     inset: 0;
-
-    z-index: 150;
-
+    z-index: 200;
     display: block;
-
-    background: rgba(15, 23, 18, 0.18);
+    background: rgba(20, 39, 28, 0.3);
+    backdrop-filter: blur(1px);
   }
-
-  .admin-sidebar-brand {
-    padding-top: 20px;
-  }
-}
-
-
-/* =========================================
-   SMALL MOBILE
-   ========================================= */
-
-@media (max-width: 420px) {
-
-  .admin-sidebar {
-    width: 245px;
-  }
-
-  .admin-sidebar-closed {
-    width: 245px;
-  }
-
-  .admin-sidebar-mobile-toggle {
-    width: 34px;
-    height: 34px;
-
-    top: 11px;
-    left: 11px;
-  }
-
 }

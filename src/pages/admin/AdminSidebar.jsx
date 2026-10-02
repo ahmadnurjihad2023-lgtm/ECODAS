@@ -9,105 +9,65 @@ import {
   Settings,
   LogOut,
   HelpCircle,
-  Menu,
-  X,
-  BarChart3,
 } from "lucide-react";
 
+import { useAuth } from "../../context/AuthContext";
 import logo from "../../assets/images/logo.png";
 import "./AdminSidebar.css";
 
 export default function AdminSidebar() {
   const navigate = useNavigate();
+  const { logout } = useAuth();
 
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(() =>
+    typeof window === "undefined" ? true : window.innerWidth > 900,
+  );
   const [logoError, setLogoError] = useState(false);
 
-  /* =========================================
-     RESPONSIVE SIDEBAR
-     ========================================= */
-
   useEffect(() => {
-    const handleToggle = () => {
-      setIsOpen((prev) => !prev);
+    const handleToggle = () => setIsOpen((prev) => !prev);
+    const handleResize = () => {
+      if (window.innerWidth > 900) setIsOpen(true);
     };
 
     window.addEventListener("toggle-admin-sidebar", handleToggle);
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("toggle-admin-sidebar", handleToggle);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   const closeMobileSidebar = () => {
-    if (window.innerWidth <= 768) {
-      setIsOpen(false);
-    }
+    if (window.innerWidth <= 900) setIsOpen(false);
   };
-
-  /* =========================================
-     LOGOUT
-     ========================================= */
 
   const handleLogout = () => {
+    logout();
     localStorage.removeItem("user");
     localStorage.removeItem("token");
-
-    navigate("/login", {
-      replace: true,
-    });
+    navigate("/login", { replace: true });
   };
-
-  /* =========================================
-     NAV ITEM
-     ========================================= */
 
   const navItemClass = ({ isActive }) =>
     `admin-sidebar-nav-item ${isActive ? "admin-sidebar-nav-active" : ""}`;
 
   return (
     <>
-      {/* =====================================
-          MOBILE / TOGGLE BUTTON
-          ===================================== */}
-
-      <button
-        type="button"
-        className="admin-sidebar-mobile-toggle"
-        onClick={() => setIsOpen((prev) => !prev)}
-        aria-label={isOpen ? "Tutup sidebar" : "Buka sidebar"}
-      >
-        {isOpen ? (
-          <X size={20} strokeWidth={1.8} />
-        ) : (
-          <Menu size={20} strokeWidth={1.8} />
-        )}
-      </button>
-
-      {/* =====================================
-          OVERLAY
-          ===================================== */}
-
       {isOpen && (
         <div
           className="admin-sidebar-overlay"
           onClick={() => setIsOpen(false)}
+          aria-hidden="true"
         />
       )}
-
-      {/* =====================================
-          SIDEBAR
-          ===================================== */}
 
       <aside
         className={`admin-sidebar ${
           isOpen ? "admin-sidebar-open" : "admin-sidebar-closed"
         }`}
       >
-        {/* ===================================
-            BRAND
-            =================================== */}
-
         <div className="admin-sidebar-brand">
           <div className="admin-sidebar-logo-box">
             {!logoError ? (
@@ -118,30 +78,18 @@ export default function AdminSidebar() {
                 onError={() => setLogoError(true)}
               />
             ) : (
-              <div className="admin-sidebar-logo-fallback">
-                <span>E</span>
-              </div>
+              <div className="admin-sidebar-logo-fallback">E</div>
             )}
           </div>
 
-          <div className="admin-sidebar-brand-name">ECODAS</div>
-
-          <div className="admin-sidebar-brand-subtitle">
-            Sustainability Intelligence
+          <div className="admin-sidebar-brand-copy">
+            <strong>Administration</strong>
+            <span>Sustainability Intelligence</span>
           </div>
-
-          <div className="admin-sidebar-admin-badge">ADMINISTRATION</div>
         </div>
 
-        {/* ===================================
-            CONTENT
-            =================================== */}
-
         <div className="admin-sidebar-content">
-          {/* OVERVIEW */}
-
           <div className="admin-sidebar-section-label">OVERVIEW</div>
-
           <nav className="admin-sidebar-nav">
             <NavLink
               to="/admin/dashboard"
@@ -149,17 +97,13 @@ export default function AdminSidebar() {
               onClick={closeMobileSidebar}
             >
               <LayoutDashboard size={18} strokeWidth={1.8} />
-
               <span>Dashboard</span>
             </NavLink>
           </nav>
 
-          {/* INTELLIGENCE */}
-
           <div className="admin-sidebar-section-label admin-sidebar-section-space">
-            SUSTAINABILITY INTELLIGENCE
+            INTELLIGENCE
           </div>
-
           <nav className="admin-sidebar-nav">
             <NavLink
               to="/admin/collective"
@@ -167,7 +111,6 @@ export default function AdminSidebar() {
               onClick={closeMobileSidebar}
             >
               <Brain size={18} strokeWidth={1.8} />
-
               <span>Collective Intelligence</span>
             </NavLink>
 
@@ -177,17 +120,13 @@ export default function AdminSidebar() {
               onClick={closeMobileSidebar}
             >
               <Lightbulb size={18} strokeWidth={1.8} />
-
               <span>Decision Support</span>
             </NavLink>
           </nav>
 
-          {/* DATA */}
-
           <div className="admin-sidebar-section-label admin-sidebar-section-space">
-            DATA
+            DATA MANAGEMENT
           </div>
-
           <nav className="admin-sidebar-nav">
             <NavLink
               to="/admin/students"
@@ -195,7 +134,6 @@ export default function AdminSidebar() {
               onClick={closeMobileSidebar}
             >
               <Users size={18} strokeWidth={1.8} />
-
               <span>Students</span>
             </NavLink>
 
@@ -205,27 +143,13 @@ export default function AdminSidebar() {
               onClick={closeMobileSidebar}
             >
               <ClipboardList size={18} strokeWidth={1.8} />
-
-              <span>Activity Data</span>
-            </NavLink>
-
-            <NavLink
-              to="/admin/dashboard"
-              className={navItemClass}
-              onClick={closeMobileSidebar}
-            >
-              <BarChart3 size={18} strokeWidth={1.8} />
-
-              <span>Sustainability Metrics</span>
+              <span>Activity Review</span>
             </NavLink>
           </nav>
-
-          {/* SYSTEM */}
 
           <div className="admin-sidebar-section-label admin-sidebar-section-space">
             SYSTEM
           </div>
-
           <nav className="admin-sidebar-nav">
             <NavLink
               to="/admin/settings"
@@ -233,20 +157,14 @@ export default function AdminSidebar() {
               onClick={closeMobileSidebar}
             >
               <Settings size={18} strokeWidth={1.8} />
-
               <span>Settings</span>
             </NavLink>
           </nav>
         </div>
 
-        {/* ===================================
-            FOOTER
-            =================================== */}
-
         <div className="admin-sidebar-footer">
           <button type="button" className="admin-sidebar-footer-item">
             <HelpCircle size={18} strokeWidth={1.8} />
-
             <span>Support</span>
           </button>
 
@@ -256,10 +174,8 @@ export default function AdminSidebar() {
             onClick={handleLogout}
           >
             <LogOut size={18} strokeWidth={1.8} />
-
             <div className="admin-sidebar-logout-text">
               <span>Sign out</span>
-
               <small>admin@ecodas.id</small>
             </div>
           </button>
