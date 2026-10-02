@@ -1,0 +1,17 @@
+ECODAS - NETLIFY DEPLOY
+
+Recommended settings:
+- Framework: Vite
+- Build command: npm run build
+- Publish directory: dist
+- Node.js: 22
+
+SPA routing is already configured in netlify.toml so React Router URLs can be refreshed without a 404.
+
+For Netlify Drop:
+1. Sign in to Netlify.
+2. Open https://app.netlify.com/drop
+3. Drag this project folder into the drop zone.
+4. Netlify should detect Vite, install dependencies, build, and publish the site.
+
+Alternative: use the prebuilt ecodas-netlify-drop folder/package and drag that folder instead.

@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Kalau di bawahnya ada kode CSS bawaan Vite, biarkan saja atau boleh dihapus */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background-color: #f8fafc;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1e293b;
+}
+
+h1, h2, h3, h4 { font-family: inherit; }

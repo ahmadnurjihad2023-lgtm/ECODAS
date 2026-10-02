@@ -1,0 +1,503 @@
+/* =====================================================
+   ECODAS SIDEBAR
+===================================================== */
+
+.sidebar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 258px;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border-right: 1px solid #e5ebe7;
+
+  z-index: 1000;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  box-sizing: border-box;
+
+  transition:
+    transform 0.22s ease,
+    width 0.22s ease;
+}
+
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.sidebar-brand {
+  width: 100%;
+
+  padding: 24px 18px 23px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid #edf0ed;
+}
+
+
+/* =====================================================
+   LARGE LOGO
+===================================================== */
+
+.sidebar-logo-box {
+  width: 100%;
+
+  height: 92px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 8px;
+}
+
+
+.sidebar-logo {
+  width: 112px;
+  height: 88px;
+
+  object-fit: contain;
+
+  display: block;
+
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   ECODAS TEXT
+===================================================== */
+
+.sidebar-brand-name {
+  margin: 0;
+
+  color: #173d29;
+
+  font-size: 21px;
+
+  line-height: 1.15;
+
+  font-weight: 800;
+
+  letter-spacing: 0.25px;
+}
+
+
+/* =====================================================
+   SUBTITLE
+===================================================== */
+
+.sidebar-brand-subtitle {
+  margin-top: 5px;
+
+  color: #89938d;
+
+  font-size: 9.5px;
+
+  line-height: 1.3;
+
+  font-weight: 500;
+
+  letter-spacing: 0;
+
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.sidebar-content {
+  flex: 1;
+
+  width: 100%;
+
+  padding: 23px 14px;
+
+  box-sizing: border-box;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+}
+
+
+/* Scrollbar */
+
+.sidebar-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+  background: #dfe6e1;
+
+  border-radius: 10px;
+}
+
+
+/* =====================================================
+   SECTION LABEL
+===================================================== */
+
+.sidebar-section-label {
+  padding: 0 12px;
+
+  margin-bottom: 9px;
+
+  color: #9aa49e;
+
+  font-size: 10px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: 0.09em;
+}
+
+
+/* Jarak antar section */
+
+.sidebar-section-space {
+  margin-top: 27px;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.sidebar-nav {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+/* =====================================================
+   NAV ITEM
+===================================================== */
+
+.sidebar-nav-item {
+  width: 100%;
+
+  min-height: 44px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  color: #66716b;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+
+/* Icon */
+
+.sidebar-nav-item svg {
+  flex-shrink: 0;
+}
+
+
+/* Text */
+
+.sidebar-nav-item span {
+  min-width: 0;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.sidebar-nav-item:hover {
+  background: #f3f6f3;
+
+  color: #173d29;
+}
+
+
+/* =====================================================
+   ACTIVE
+===================================================== */
+
+.sidebar-nav-active {
+  background: #e9f1eb;
+
+  color: #173d29;
+
+  font-weight: 650;
+}
+
+
+.sidebar-nav-active svg {
+  color: #24583d;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.sidebar-footer {
+  width: 100%;
+
+  padding: 14px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  border-top: 1px solid #edf0ed;
+}
+
+
+/* =====================================================
+   FOOTER ITEM
+===================================================== */
+
+.sidebar-footer-item {
+  width: 100%;
+
+  min-height: 43px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #69736d;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+
+.sidebar-footer-item:hover {
+  background: #f3f6f3;
+
+  color: #173d29;
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+.sidebar-logout:hover {
+  color: #9a4040;
+
+  background: #faf4f4;
+}
+
+
+.sidebar-logout-text {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  min-width: 0;
+}
+
+
+.sidebar-logout-text span {
+  line-height: 1.1;
+}
+
+
+.sidebar-logout-text small {
+  color: #9ba49f;
+
+  font-size: 9px;
+
+  line-height: 1.1;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =====================================================
+   MOBILE BUTTON
+===================================================== */
+
+.sidebar-mobile-toggle {
+  display: none;
+
+  position: fixed;
+
+  top: 14px;
+  left: 14px;
+
+  width: 40px;
+  height: 40px;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid #dfe6e1;
+
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: #173d29;
+
+  cursor: pointer;
+
+  z-index: 1200;
+
+  box-shadow: 0 4px 14px rgba(23, 61, 41, 0.08);
+}
+
+
+/* =====================================================
+   MOBILE OVERLAY
+===================================================== */
+
+.sidebar-overlay {
+  display: none;
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(17, 31, 23, 0.28);
+
+  z-index: 999;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .sidebar {
+    width: 258px;
+
+    transform: translateX(-100%);
+  }
+
+
+  .sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+
+
+  .sidebar-mobile-toggle {
+    display: flex;
+  }
+
+
+  .sidebar-overlay {
+    display: block;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .sidebar {
+    width: 245px;
+  }
+
+}
